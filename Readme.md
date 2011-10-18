@@ -1,10 +1,17 @@
 ﻿
 # rinuts-nodeunitDriver
   
-  Exposes nodeunit based tests through a RESTful api using [rinuts](http://github.com/urigolani/rinuts), allowing to remotely query for the urls of supported tests and to activate them, receiving a detailed test run summary.
+  * Exposes nodeunit based tests through a RESTful api using [rinuts](http://github.com/urigolani/rinuts), allowing to remotely query for the urls of supported tests and to activate them, receiving a detailed test run summary.
+  
+  * Fully supports nodeunit structured tests, testcases and groups.
+  
+  * Supports loading of
+		1. complete folders including subfolders for all contained test files
+		2. specific files
+		3. test modules objects (this allows one to consume a test module from another service);
     
   built on [node](http://nodejs.org) and [nodeunit](http://github.com/caolan/nodeunit)
-
+ 
 ## Installation
 
     Install with [npm](http://github.com/isaacs/npm):
@@ -19,7 +26,28 @@
         rinuts = require('rinuts-nodeunitDriver');
 
     rinuts.listen([path.resolve('/tests/testFolder'), path.resolve('../tests/testSuite1.js'), require('../testSuite2')], 9999);
-
+### important note
+	
+	The name of the tests contained in modules introduced to this driver must differ from one another, otherwise they will overlap.
+	Tests orginized in groups will have their containing group name appended prior to the test name, e.g:
+	{
+		groupA: {
+			test1: function(test){
+				...
+				}
+		}
+	}
+	
+	will be reffered to by the driver as 'groupA.test1'.
+	Thus having the following module included with the module above is O.K by naming: 
+	{
+		groupB: {
+			test1: function(test){
+				...
+				}
+		}
+	}	
+	
 ### Service API:
            
     * listen(modules, port)
