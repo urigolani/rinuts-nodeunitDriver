@@ -1,0 +1,14 @@
+{   "name": "rinuts-nodeunitDriver",
+    "version": "0.0.1",
+    "author": "Uri Golani <urigolani@gmail.com>",    
+    "description": "A nodeunit driver for rinuts. enumerates and runs single nodeunit tests",
+    "dependencies": {
+        "rinuts": "0.0.1"		
+    },
+    "main": "index",
+    "keywords": [ "nodeunit", "rest", "restful", "test", "rinuts", "nodeunitDriver", "rinuts-nodeunitDriver" ],   
+    "repository" : {
+        "type" : "git",
+        "url" : "http://urigolani@github.com/urigolani/rinuts-NodeunitDriver.git"
+        } 
+}
