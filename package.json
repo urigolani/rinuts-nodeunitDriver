@@ -1,5 +1,5 @@
 {   "name": "rinuts-nodeunitDriver",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "author": "Uri Golani <urigolani@gmail.com>",    
     "description": "A nodeunit driver using rinuts. Enumerates and runs single nodeunit tests",
     "dependencies": {
