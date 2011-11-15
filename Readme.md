@@ -86,3 +86,21 @@
                             ...
                             ]		
             }
+			
+		Adding context to the request(Optional):		
+			HTTP-Headers: "Content-Type: application/json"
+			HTTP-Body: *context* - a JSON notated object
+			
+			context has the following form: "{"context": *whatEver* }"
+		
+		* context is reachable in any nodeunit based test through the 'test' argument, e.g,
+		TestSuite.js :
+			exports.contextEqualNumbers = function(test){
+				var num1 = 10,
+					num2 = test.context.num2;
+					
+				test.ok(num1 === num2);
+				test.done();
+			}
+		
+
